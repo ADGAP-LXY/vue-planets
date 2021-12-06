@@ -1,12 +1,32 @@
 #app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
-  color: #eaeff3;
+
+  color: #fff;
   margin-top: 60px;
 }
-p.label{
+body {
+  background-image: url("/images/bg.jpg");
+}
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.text-white {
+  --text-opacity: 1;
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
+}
+
+p.label {
   display: block;
   margin-block-start: 1em;
   margin-block-end: 1em;
@@ -15,41 +35,95 @@ p.label{
   color: #e73b54;
   font-size: 1rem;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
 }
 .text-body-md {
   color: rgb(251, 251, 251);
-  grid-column-end: 6; 
+  grid-column-end: 6;
+  font-size: 1.125rem;
+  line-height: 1.875rem;
 }
 .missions {
   padding-left: 0;
   padding-right: 0;
-  position: absolute; 
-  left: 13%;
-  top: 5%;
+  position: absolute;
+  left: 23%;
+  top: 8%;
 }
 h2 {
-  margin-bottom: .75rem;
-      font-size: 2.5rem;
-    letter-spacing: -1px;
-    line-height: 1.2rem;
+  margin-bottom: 0.75rem;
+  font-size: 2.5rem;
+  letter-spacing: -1px;
+  line-height: 2rem;
+  margin: 0 0 24px;
 }
 .planets {
-
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
-  flex-direction: row ;
+  flex-direction: row;
   justify-content: start;
-  position: relative; 
   align-items: center;
   height: 100vh;
-
 }
 .planet {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-
-
 }
 .planet img {
- width: 350px;
+  width: 350px;
+  position: absolute;
+  left: 45vw;
+}
+.planet-text {
+  position: relative;
+  left: 45vw;
+  top: 300px;
+  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  box-sizing: border-box;
+  border: 0 solid transparent;
+  border-image: linear-gradient(
+0deg
+,#6f6f6f,transparent) 1 20%;
+}
+.p1 {
+  font-size: 1.25em;
+  color: #fff;
+  margin: 0;
+}
+.p2 {
+  color: #d8d8d8;
+  margin-bottom: px;
+  font-size: 1.35rem;
+  font-weight: 1;
+  margin: 0;
+}
+.p3 {
+  color: #d8d8d8;
+  font-size: 1.35rem;
+  font-weight: 1;
+  margin: 0;
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  margin-top: -25px;
+}
+
+.right-button {
+  left: auto;
+  right: 10%;
+}
+
+.explore {
+  color: #e73b54;
 }
