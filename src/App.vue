@@ -7,10 +7,10 @@
       every planet in the solar system and the Sun, <br />
       and beyond.
     </p>
-    <p>
+    <!-- <p>
       winWidth: {{ winWidth }}, left: {{ left }}, N: {{ N }}, pointer:
       {{ pointer }}
-    </p>
+    </p> -->
   </div>
 
   <div
@@ -21,13 +21,14 @@
       transition: offset === 0 ? `left ${moveSpeed}ms ease-in-out` : '',
     }"
   >
+  <!-- opacity: 1 - (Math.abs(index - (N + 1) / 2) * 1) / (N - 2), -->
     <div
       v-for="(planet, index) in viewPlanets"
-      :key="pointer + index"
+      :key="pointer + index"  
       :style="{
         width: planetWidth + 'px',
         height: planetWidth + 'px',
-        opacity: 1 - (Math.abs(index - (N + 1) / 2) * 1) / (N - 2),
+        opacity: index == (N + 1) / 2 ? 1 : 0.5,
         transform: `scale(${
           1 - (Math.abs(index - (N + 1) / 2) * 1) / (N + 2)
         })`,
@@ -98,12 +99,12 @@ export default {
     fetch("/data.json")
       .then((response) => response.json())
       .then((json) => {
-        this.allPlanets.push(...json);
+        this.allPlanets.push(...json);//spread
       });
   },
   computed: {
     planetsWidth() {
-      return (this.N + 2) * this.planetWidth;
+      return (this.N + 2) * this.planetWidth;//冗余；动画流畅
     },
     N() {
       const n = Math.ceil(this.winWidth / this.planetWidth);
@@ -145,7 +146,7 @@ export default {
       return arr;
     },
     left() {
-      return this.offset + (this.winWidth - this.planetsWidth) / 2;
+      return this.offset + (this.winWidth - this.planetsWidth)/ 2 
     },
   },
 
@@ -188,6 +189,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>
