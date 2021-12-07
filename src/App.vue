@@ -4,7 +4,7 @@
     <h2>Exploring the Universe</h2>
     <p class="text-body-md">
       Spacecraft developed at JPL have flown to <br />
-      every planet in the solar system and the Sun, <br />
+      every planet in the solar system and the Sun <br />
       and beyond.
     </p>
     <!-- <p>
@@ -21,14 +21,15 @@
       transition: offset === 0 ? `left ${moveSpeed}ms ease-in-out` : '',
     }"
   >
-  <!-- opacity: 1 - (Math.abs(index - (N + 1) / 2) * 1) / (N - 2), -->
+
     <div
       v-for="(planet, index) in viewPlanets"
       :key="pointer + index"  
       :style="{
         width: planetWidth + 'px',
         height: planetWidth + 'px',
-        opacity: index == (N + 1) / 2 ? 1 : 0.5,
+        opacity: 1 - (Math.abs(index - (N + 1) / 2) * 1) / (N - 2), 
+        
         transform: `scale(${
           1 - (Math.abs(index - (N + 1) / 2) * 1) / (N + 2)
         })`,
@@ -70,7 +71,7 @@
   </div>
 
   <div class="button right-button" @click="moveLeft">
-    <Button style="transform: rotate(180deg)" />
+    <Button style="transform: rotate(180deg)"  />
   </div>
 </template>
 

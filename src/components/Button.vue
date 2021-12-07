@@ -28,8 +28,9 @@ button {
   height: 50px;
   background-color: #e73b54;
   border: none;
+  opacity: 0.5;
 }
 button:hover {
-  background: rgb(29, 177, 9);
+  background: rgb(174, 201, 23);
 }
 </style>
